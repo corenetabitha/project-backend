@@ -89,6 +89,7 @@ AUTH_USER_MODEL = 'store.CustomUser'
 AUTHENTICATION_BACKENDS = ['store.auth_backend.EmailBackend']
 
 
+
 # REST Framework JWT settings
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
