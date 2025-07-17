@@ -1,4 +1,4 @@
-# store/views/admin_views.py
+
 from django.http import JsonResponse
 from store.utils.decorators import admin_required
 from store.models import Book

@@ -1,4 +1,4 @@
-# store/urls/__init__.py
+
 from django.urls import include, path
 
 

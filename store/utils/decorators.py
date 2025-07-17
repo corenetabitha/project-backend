@@ -1,4 +1,4 @@
-# store/utils/decorators.py
+
 from functools import wraps
 from django.http import JsonResponse
 from rest_framework_simplejwt.authentication import JWTAuthentication

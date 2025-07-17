@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.contrib.auth.base_user import BaseUserManager
 
-# ✅ Custom user manager
+
 class CustomUserManager(BaseUserManager):
     use_in_migrations = True
 
@@ -27,7 +27,7 @@ class CustomUserManager(BaseUserManager):
 
         return self.create_user(email, password, role, **extra_fields)
 
-# ✅ Custom user model
+
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     ROLE_CHOICES = (
         ('user', 'User'),
