@@ -22,8 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+<<<<<<< HEAD
 
 
-venv
-__pycache__
-migrations
+venv/
+__pycache__/
+migrations/
+=======
+>>>>>>> e2e319d51590d488ad23d98ff0a19f9c17865a68
