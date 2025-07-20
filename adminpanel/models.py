@@ -16,11 +16,11 @@ class Book(models.Model):
 class Order(models.Model):
     user_id = models.CharField(max_length=100)
     amount = models.DecimalField(max_digits=6, decimal_places=2)
-    status = models.CharField(max_length=20, default='Pending')  # Approved, Rejected
+    status = models.CharField(max_length=20, default='Pending')  
     date = models.DateField(auto_now_add=True)
 
 
 class LendingRequest(models.Model):
     user_id = models.CharField(max_length=100)
-    status = models.CharField(max_length=20, default='Pending')  # Approved, Rejected
+    status = models.CharField(max_length=20, default='Pending') 
     date = models.DateField(auto_now_add=True)
