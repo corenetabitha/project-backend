@@ -19,7 +19,7 @@ urlpatterns = [
     # Django admin
     path('admin/', admin.site.urls),
 
-    # API routes (auth, admin, etc.)
+    # API routes auth, admin
     path('api/', include('store.urls')),
 
     # Swagger docs

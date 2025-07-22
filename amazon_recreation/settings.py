@@ -18,12 +18,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
-    'corsheaders',         # ✅ Added CORS
+    'corsheaders',         
     'store',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',  # ✅ Must be first
+    'corsheaders.middleware.CorsMiddleware',  
     'django.middleware.common.CommonMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
@@ -104,7 +104,7 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
-# ✅ CORS settings for frontend access
+#  CORS settings for frontend access
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # React Vite dev server
 ]
