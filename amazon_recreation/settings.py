@@ -18,13 +18,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'corsheaders',         # ✅ Added CORS
     'store',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # ✅ Must be first
+    'django.middleware.common.CommonMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -88,8 +91,6 @@ STATIC_URL = 'static/'
 AUTH_USER_MODEL = 'store.CustomUser'
 AUTHENTICATION_BACKENDS = ['store.auth_backend.EmailBackend']
 
-
-
 # REST Framework JWT settings
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -102,5 +103,13 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
+
+# ✅ CORS settings for frontend access
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # React Vite dev server
+]
+
+# Optional: Allow credentials (cookies, etc.) if needed
+CORS_ALLOW_CREDENTIALS = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
