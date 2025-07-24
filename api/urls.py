@@ -1,13 +1,10 @@
-# /home/corene/project-backend/backend/api/urls.py
 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-# NEW: Import GenreViewSet
 from .views import BookViewSet, UserRegisterLoginViewSet, GenreViewSet
 
 router = DefaultRouter()
 router.register(r'books', BookViewSet)
-# NEW: Register GenreViewSet
 router.register(r'genres', GenreViewSet)
 
 
