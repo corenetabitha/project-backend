@@ -1,4 +1,3 @@
-# /home/corene/project-backend/backend/api/views.py
 
 from rest_framework import viewsets, status
 from rest_framework.response import Response
@@ -9,39 +8,29 @@ from .models import Book, Genre
 from .serializers import BookSerializer, UserSerializer, GenreSerializer
 from django.db.models import Q
 
-# Genre ViewSet for CRUD operations on Genres
 class GenreViewSet(viewsets.ModelViewSet):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
 
     def get_permissions(self):
-        # Only admin users can create, update, or delete genres
         if self.action in ['create', 'update', 'partial_update', 'destroy']:
             self.permission_classes = [IsAdminUser]
-        else: # list, retrieve
-            self.permission_classes = [AllowAny] # Allow anyone to list/retrieve genres
+        else: 
+            self.permission_classes = [AllowAny]
         return [permission() for permission in self.permission_classes]
 
 
 class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-    # REMOVED: The incorrect 'permission = [AllowAny]' line.
-    # Permissions are now solely handled by the get_permissions method below.
 
     def get_permissions(self):
-        # --- CORRECTED PERMISSIONS FOR BOOKVIEWSET ---
         if self.action in ['create']:
-            # For development, allow anyone to create books.
-            # You will change this back to IsAuthenticated or IsAdminUser when implementing full authentication.
             self.permission_classes = [AllowAny]
         elif self.action in ['update', 'partial_update', 'destroy']:
-            # Only admin users can update or delete books.
             self.permission_classes = [IsAdminUser]
-        else: # 'list' and 'retrieve' actions (GET requests)
-            # Allow anyone to view the list of books and individual book details.
+        else: 
             self.permission_classes = [AllowAny]
-        # --- END OF CORRECTION ---
         return [permission() for permission in self.permission_classes]
 
     def get_queryset(self):
